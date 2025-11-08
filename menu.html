@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>CSK | Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'rgb(20 54 40)',
+                        accent: '#FFEB3C',
+                        'text-dark': '#143628'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        .menu-item {
+            transition: all 0.3s ease;
+        }
+        .menu-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(20, 54, 40, 0.1), 0 10px 10px -5px rgba(20, 54, 40, 0.04);
+        }
+        .badge {
+            background: linear-gradient(135deg, #FFEB3C, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen font-body text-text-dark">
+    <!-- Header -->
+    <header class="bg-primary text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl md:text-4xl font-heading font-bold">CSK</h1>
+                    <p class="text-sm opacity-90 mt-1">CHAAT • SHAKES • KATHI</p>
+                </div>
+                <div class="hidden md:flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
+                    <span class="text-sm">Open Now</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section – LOGO + TITLE -->
+    <section class="bg-primary text-white py-16 md:py-20">
+        <div class="container mx-auto px-4 text-center">
+            <!-- ==== CIRCULAR LOGO ==== -->
+            <div class="flex justify-center mb-6">
+                <img src="assets/logo.png"
+                     alt="Delicious Bites Logo"
+                     class="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-xl border-4 border-[#FFD700]">
+            </div>
+
+            <h2 class="text-4xl md:text-6xl font-heading font-bold mb-4">Our Menu</h2>
+            <p class="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
+                Crafted with love, served with passion. Every dish tells a story of flavor.
+            </p>
+        </div>
+    </section>
+
+    <!-- Category Tabs -->
+    <div class="sticky top-0 z-10 bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto scrollbar-hide py-4 space-x-8" id="category-tabs">
+                <button class="tab-btn active whitespace-nowrap pb-2 border-b-2 border-accent font-medium" data-category="all">All Items</button>
+                <button class="tab-btn whitespace-nowrap pb-2 border-b-2 border-transparent font-medium" data-category="appetizers">Appetizers</button>
+                <button class="tab-btn whitespace-nowrap pb-2 border-b-2 border-transparent font-medium" data-category="mains">Main Courses</button>
+                <button class="tab-btn whitespace-nowrap pb-2 border-b-2 border-transparent font-medium" data-category="desserts">Desserts</button>
+                <button class="tab-btn whitespace-nowrap pb-2 border-b-2 border-transparent font-medium" data-category="beverages">Beverages</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Grid -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8" id="menu-grid">
+            <!-- Menu items will be injected here by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white mt-20 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm opacity-80">&copy; 2025 CSK. Made with ❤️ and fresh ingredients.</p>
+        </div>
+    </footer>
+
+    <!-- Menu Data -->
+    <script>
+        const menuItems = [
+            // Appetizers
+            { id: 1, name: "Crispy Calamari", price: 12.99, category: "appetizers", desc: "Golden fried squid rings with zesty marinara", badge: "Chef's Pick", img: "https://images.unsplash.com/photo-1604909052743-94e838986d24?w=400&h=300&fit=crop" },
+            { id: 2, name: "Bruschetta Trio", price: 9.99, category: "appetizers", desc: "Tomato basil, mushroom, and olive tapenade", badge: null, img: "ITEMS/TRIO.jfif" },
+            { id: 3, name: "Stuffed Mushrooms", price: 11.50, category: "appetizers", desc: "Spinach & cheese filled, baked to perfection", badge: "Vegan", img: "ITEMS/STUFFED.jfif?w=400&h=300&fit=crop" },
+            
+            // Main Courses
+            { id: 4, name: "Grilled Salmon", price: 24.99, category: "mains", desc: "Atlantic salmon with lemon herb butter", badge: "Best Seller", img: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop" },
+            { id: 5, name: "Ribeye Steak", price: 32.99, category: "mains", desc: "12oz prime cut with garlic mashed potatoes", badge: null, img: "ITEMS/Lamb-Chops.jpg?w=400&h=300&fit=crop" },
+            { id: 6, name: "Truffle Pasta", price: 18.99, category: "mains", desc: "Handmade fettuccine in creamy truffle sauce", badge: "Vegetarian", img: "ITEMS/truffle-pasta-edited-1200x1200-1.jpg?w=400&h=300&fit=crop" },
+            { id: 7, name: "Chicken Parmesan", price: 19.99, category: "mains", desc: "Breaded chicken, marinara, melted mozzarella", badge: null, img: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=400&h=300&fit=crop" },
+            { id: 8, name: "Lamb Chops", price: 28.99, category: "mains", desc: "Herb-crusted with rosemary demi-glace", badge: "Premium", img: "ITEMS/Perfect-Pan-Seared-Ribeye-Steak.jpg?w=400&h=300&fit=crop" },
+            
+            // Desserts
+            { id: 9, name: "Tiramisu", price: 8.99, category: "desserts", desc: "Classic Italian with espresso & mascarpone", badge: "House Special", img: "ITEMS/Tiramisu_-_Raffaele_Diomede.jpg?w=400&h=300&fit=crop" },
+            { id: 10, name: "Chocolate Lava Cake", price: 9.99, category: "desserts", desc: "Warm molten center with vanilla ice cream", badge: "Most Loved", img: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=400&h=300&fit=crop" },
+            { id: 11, name: "Crème Brûlée", price: 7.99, category: "desserts", desc: "Vanilla custard with caramelized sugar", badge: null, img: "ITEMS/Crème.jpg?w=400&h=300&fit=crop" },
+            
+            // Beverages
+            { id: 12, name: "Fresh Lemonade", price: 4.99, category: "beverages", desc: "House-made with mint & honey", badge: "Refresh", img: "ITEMS/LEMONADE.jpg?w=400&h=300&fit=crop" },
+            { id: 13, name: "Artisan Coffee", price: 3.99, category: "beverages", desc: "Single-origin beans, your way", badge: null, img: "ITEMS/ARTCOFFEE.jpg?w=400&h=300&fit=crop" },
+            { id: 14, name: "Mango Lassi", price: 5.99, category: "beverages", desc: "Creamy yogurt drink with fresh mango", badge: "Cool", img: "ITEMS/MANGO.jpg?w=400&h=300&fit=crop" }
+        ];
+
+        // Render menu items
+        function renderMenu(items) {
+            const grid = document.getElementById('menu-grid');
+            grid.innerHTML = items.map(item => `
+                <div class="menu-item bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col" data-category="${item.category}">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="${item.img}" alt="${item.name}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        ${item.badge ? `<div class="absolute top-3 left-3 px-3 py-1 bg-white rounded-full shadow-md">
+                            <span class="text-xs font-bold badge">${item.badge}</span>
+                        </div>` : ''}
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-heading font-bold text-text-dark mb-1">${item.name}</h3>
+                            <p class="text-sm text-gray-600 mb-3">${item.desc}</p>
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-2xl font-bold text-primary">$${item.price.toFixed(2)}</span>
+                            <button class="bg-accent text-primary px-4 py-2 rounded-full font-medium hover:bg-yellow-300 transition-colors text-sm">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('active', 'border-accent', 'text-primary');
+                    b.classList.add('border-transparent');
+                });
+                btn.classList.add('active', 'border-accent', 'text-primary');
+                btn.classList.remove('border-transparent');
+
+                const category = btn.getAttribute('data-category');
+                const filtered = category === 'all' ? menuItems : menuItems.filter(i => i.category === category);
+                renderMenu(filtered);
+            });
+        });
+
+        // Initial render
+        renderMenu(menuItems);
+
+        // Hide scrollbar but keep functionality
+        const style = document.createElement('style');
+        style.innerHTML = `
+            .scrollbar-hide::-webkit-scrollbar { display: none; }
+            .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
